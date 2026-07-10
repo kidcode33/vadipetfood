@@ -134,13 +134,13 @@ const SUB_OPTIONS = [
 
 const PRODUCTS = [
   /* Tavuk Serisi */
-  {id:"tavuk-ciger-kart",  serie:"🐔 Tavuk Menüleri", emoji:"🍗", label:"Günlük Güç Menüsü",    desc:"Dengeli günlük enerji, kedi & köpek için",          tag:"",         who:"Kedi & Köpek"},
-  {id:"tavuk-taslik-kart", serie:"🐔 Tavuk Menüleri", emoji:"🍖", label:"Hassas Mide Menüsü",   desc:"Mide dostu hafif formül, kedi & köpek için",               tag:"",         who:"Kedi & Köpek"},
-  {id:"tavuk-yurek-kart",  serie:"🐔 Tavuk Menüleri", emoji:"🫀", label:"Yavru Başlangıç Menüsü", desc:"Büyüme dönemi için taurin & protein desteği",           tag:"Popüler",  who:"Kedi & Köpek"},
+  {id:"tavuk-ciger-kart",  serie:"🐔 Tavuk Menüleri", emoji:"🍗", img:"/images/tc.png", label:"Günlük Güç Menüsü",     desc:"Dengeli günlük enerji, kedi & köpek için",        tag:"",          who:"Kedi & Köpek"},
+  {id:"tavuk-taslik-kart", serie:"🐔 Tavuk Menüleri", emoji:"🍖", img:"/images/tt.png", label:"Hassas Mide Menüsü",    desc:"Mide dostu hafif formül, kedi & köpek için",      tag:"",          who:"Kedi & Köpek"},
+  {id:"tavuk-yurek-kart",  serie:"🐔 Tavuk Menüleri", emoji:"🫀", img:"/images/ty.png", label:"Yavru Başlangıç Menüsü",desc:"Büyüme dönemi için taurin & protein desteği",     tag:"Popüler",   who:"Kedi & Köpek"},
   /* Dana Serisi */
-  {id:"dana-yurek-kart",   serie:"🥩 Dana Menüleri",  emoji:"❤️", label:"Aktif Dost Menüsü",    desc:"Enerjik dostlar için güçlü demir & taurin",       tag:"Yeni",     who:"Kedi & Köpek"},
-  {id:"dana-ciger-kart",   serie:"🥩 Dana Menüleri",  emoji:"🥩", label:"Kıdemli Dost Menüsü",  desc:"Olgun dostlar için A vitamini & antioksidan", tag:"",         who:"Kedi & Köpek"},
-  {id:"dana-iskembe-kart", serie:"🥩 Dana Menüleri",  emoji:"🫶", label:"Sindirim Destek Menüsü", desc:"Probiyotik & sindirim enzimi destekli köpek menüsü",           tag:"Köpek Özel",who:"Özellikle Köpek"},
+  {id:"dana-yurek-kart",   serie:"🥩 Dana Menüleri",  emoji:"❤️", img:"/images/dy.png", label:"Aktif Dost Menüsü",     desc:"Enerjik dostlar için güçlü demir & taurin",       tag:"Yeni",      who:"Kedi & Köpek"},
+  {id:"dana-ciger-kart",   serie:"🥩 Dana Menüleri",  emoji:"🥩", img:"/images/dc.png", label:"Kıdemli Dost Menüsü",   desc:"Olgun dostlar için A vitamini & antioksidan",     tag:"",          who:"Kedi & Köpek"},
+  {id:"dana-iskembe-kart", serie:"🥩 Dana Menüleri",  emoji:"🫶", img:"/images/di.png", label:"Sindirim Destek Menüsü",desc:"Probiyotik & sindirim enzimi destekli köpek menüsü",tag:"Köpek Özel",who:"Özellikle Köpek"},
 ];
 
 const INGREDIENTS = [
