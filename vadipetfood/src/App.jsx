@@ -85,25 +85,33 @@ const SERIES = [
   { id:"dana",  label:"🥩 Dana Serisi",  color:"#FCE4EC", colorDark:"rgba(239,83,80,0.15)"  },
 ];
 
+// 📸 Görselleri değiştirmek için: img alanındaki URL'yi kendi fotoğrafınızın adresiyle değiştirin
+// Örnek: img: "/images/gunluk-guc.jpg" (public/images klasörüne koyun)
 const MAMA_TYPES = [
   /* ── TAVUK SERİSİ ── */
   { id:"tavuk-ciger",  series:"tavuk", label:"Günlük Güç Menüsü", desc:"Demir & B12 desteği ile dengeli günlük enerji",
+    img:"https://images.unsplash.com/photo-1604503468958-0c2fc57b4ddb?w=480&h=280&fit=crop&q=80",
     nutrition:{ protein:68, fat:14, carb:18, energy:320, vitamin:82, fiber:42, water:180 },
     storage:"Buzdolabında 3 gün", consumption:"Oda sıcaklığında servis edin", who:"Kedi & Köpek" },
   { id:"tavuk-taslik", series:"tavuk", label:"Hassas Mide Menüsü", desc:"Hafif sindirilebilir, mide dostu yüksek protein",
+    img:"https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=480&h=280&fit=crop&q=80",
     nutrition:{ protein:72, fat:13, carb:15, energy:295, vitamin:75, fiber:38, water:190 },
     storage:"Buzdolabında 3 gün", consumption:"Küçük porsiyonlarda servis", who:"Kedi & Köpek" },
   { id:"tavuk-yurek",  series:"tavuk", label:"Yavru Başlangıç Menüsü", desc:"Büyüme & gelişim için taurin zengin formül",
+    img:"https://images.unsplash.com/photo-1598514982901-4bd2c93e4c4e?w=480&h=280&fit=crop&q=80",
     nutrition:{ protein:70, fat:18, carb:12, energy:340, vitamin:88, fiber:35, water:175 },
     storage:"Buzdolabında 3 gün", consumption:"Günde 2 öğünde tüketin", who:"Kedi & Köpek" },
   /* ── DANA SERİSİ ── */
   { id:"dana-yurek",    series:"dana", label:"Aktif Dost Menüsü",    desc:"Enerjik yaşam için güçlü demir & taurin desteği",
+    img:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=480&h=280&fit=crop&q=80",
     nutrition:{ protein:74, fat:16, carb:10, energy:355, vitamin:85, fiber:30, water:170 },
     storage:"Buzdolabında 3 gün", consumption:"Oda sıcaklığına getirerek servis edin", who:"Kedi & Köpek" },
   { id:"dana-ciger",    series:"dana", label:"Kıdemli Dost Menüsü",  desc:"Yaşlı dostlar için A vitamini & antioksidan desteği",
+    img:"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=480&h=280&fit=crop&q=80",
     nutrition:{ protein:71, fat:12, carb:17, energy:310, vitamin:95, fiber:35, water:182 },
     storage:"Buzdolabında 3 gün", consumption:"Küçük porsiyonlarda servis edin", who:"Kedi & Köpek" },
   { id:"dana-iskembe",  series:"dana", label:"Sindirim Destek Menüsü", desc:"Probiyotik & sindirim enzimi destekli köpek menüsü",
+    img:"https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=480&h=280&fit=crop&q=80",
     tag:"Köpek Özel",
     nutrition:{ protein:69, fat:15, carb:16, energy:305, vitamin:72, fiber:48, water:185 },
     storage:"Buzdolabında 3 gün", consumption:"Yavaş sindirilen besin, az miktarla başlayın", who:"Özellikle Köpek" },
@@ -508,13 +516,19 @@ const ProductsSection=memo(({onStart})=>{
   const renderCards=(items,delay=0)=>items.map((p,i)=>(
     <div key={p.id} className={cls("prod-card",inView&&"prod-card-in")} style={{animationDelay:`${(delay+i)*90}ms`}}>
       {p.tag&&<span className="prod-tag">{p.tag}</span>}
-      <div className="prod-emoji" aria-hidden>{p.emoji}</div>
-      <h3>{p.label}</h3>
-      <p>{p.desc}</p>
-      <span className="prod-who">{p.who}</span>
-      <button className="btn-outline btn-sm" onClick={onStart} aria-label={`${p.label} planı oluştur`}>
-        Beslenme Planı Oluştur <ArrowRight size={14}/>
-      </button>
+      <div className="prod-img-wrap">
+        <img src={p.img} alt={p.label} loading="lazy" className="prod-img"
+          onError={e=>{e.target.style.display="none";e.target.nextSibling.style.display="flex";}}/>
+        <div className="prod-img-fallback" style={{display:"none"}}>{p.emoji}</div>
+      </div>
+      <div className="prod-card-body">
+        <h3>{p.label}</h3>
+        <p>{p.desc}</p>
+        <span className="prod-who">{p.who}</span>
+        <button className="btn-outline btn-sm" onClick={onStart} aria-label={`${p.label} planı oluştur`}>
+          Beslenme Planı Oluştur <ArrowRight size={14}/>
+        </button>
+      </div>
     </div>
   ));
   return (
@@ -878,8 +892,12 @@ function StepTarif({mamaType,setMamaType,petType}){
               const disabled=m.id==="dana-iskembe"&&petType==="kedi";
               return (
                 <div key={m.id} className="tarif-group">
-                  <SelCard horizontal active={mamaType===m.id} onClick={()=>!disabled&&setMamaType(m.id)} className={disabled?"vsc-disabled":""}>
-                    <div>
+                  <SelCard horizontal active={mamaType===m.id} onClick={()=>!disabled&&setMamaType(m.id)} className={cls(disabled?"vsc-disabled":"","vsc-has-img")}>
+                    <div className="tarif-thumb-wrap">
+                      <img src={m.img} alt={m.label} loading="lazy" className="tarif-thumb"
+                        onError={e=>{e.target.style.display="none";}}/>
+                    </div>
+                    <div style={{flex:1}}>
                       <div style={{display:"flex",alignItems:"center",gap:7}}>
                         <h3>{m.label}</h3>
                         {m.tag&&<span className="tarif-tag">{m.tag}</span>}
@@ -1672,6 +1690,21 @@ button{font-family:'Inter',sans-serif;}
 .tarif-who{font-size:11px;color:var(--primary);font-weight:500;margin-top:2px;display:block;}
 .vsc-disabled{opacity:.5;cursor:not-allowed;}
 .vsc-disabled:hover{transform:none;box-shadow:none;border-color:var(--border);}
+
+/* PRODUCT IMAGES */
+.prod-img-wrap{width:100%;height:160px;border-radius:12px;overflow:hidden;margin-bottom:14px;background:var(--border);position:relative;}
+.prod-img{width:100%;height:100%;object-fit:cover;transition:transform .4s cubic-bezier(.16,1,.3,1);}
+.prod-card:hover .prod-img{transform:scale(1.06);}
+.prod-img-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:40px;background:var(--primary-light);}
+.prod-card-body{display:flex;flex-direction:column;gap:8px;}
+.prod-card-body h3{font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;color:var(--text);}
+.prod-card-body p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+
+/* TARIF THUMBNAIL */
+.vsc-has-img{padding:10px 14px !important;gap:12px;}
+.tarif-thumb-wrap{width:72px;height:72px;border-radius:10px;overflow:hidden;flex-shrink:0;background:var(--border);}
+.tarif-thumb{width:100%;height:100%;object-fit:cover;transition:transform .3s ease;}
+.vsc-on .tarif-thumb{transform:scale(1.05);}
 
 /* PRODUCT SERIES */
 .prod-series-section{margin-bottom:8px;}
