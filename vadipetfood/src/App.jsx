@@ -1174,8 +1174,8 @@ const Header=memo(({onStart})=>{
           <button className="theme-toggle" onClick={toggle} aria-label={dark?"Açık mod":"Koyu mod"}>
             {dark?<Sun size={18}/>:<Moon size={18}/>}
           </button>
-          <RippleBtn className="btn-primary btn-sm" onClick={onStart} aria-label="Sipariş ver">
-            Sipariş Ver <ArrowRight size={14}/>
+          <RippleBtn className="btn-primary btn-sm" onClick={onStart} aria-label="Beslenme planı oluştur">
+            Plan Oluştur <ArrowRight size={14}/>
           </RippleBtn>
         </div>
         <button className="header-menu-btn" onClick={()=>setMenu(o=>!o)} aria-expanded={menu} aria-label="Menü">{menu?<X size={20}/>:<Menu size={20}/>}</button>
