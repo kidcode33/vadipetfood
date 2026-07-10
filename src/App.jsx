@@ -90,28 +90,28 @@ const SERIES = [
 const MAMA_TYPES = [
   /* ── TAVUK SERİSİ ── */
   { id:"tavuk-ciger",  series:"tavuk", label:"Günlük Güç Menüsü", desc:"Demir & B12 desteği ile dengeli günlük enerji",
-    img:"/images/dc.png",
+    img:"/images/tavuk/ciger_tavuk.png",
     nutrition:{ protein:68, fat:14, carb:18, energy:320, vitamin:82, fiber:42, water:180 },
     storage:"Buzdolabında 3 gün", consumption:"Oda sıcaklığında servis edin", who:"Kedi & Köpek" },
   { id:"tavuk-taslik", series:"tavuk", label:"Hassas Mide Menüsü", desc:"Hafif sindirilebilir, mide dostu yüksek protein",
-    img:"/images/tt.png",
+    img:"/images/tavuk/taslik_tavuk.png",
     nutrition:{ protein:72, fat:13, carb:15, energy:295, vitamin:75, fiber:38, water:190 },
     storage:"Buzdolabında 3 gün", consumption:"Küçük porsiyonlarda servis", who:"Kedi & Köpek" },
   { id:"tavuk-yurek",  series:"tavuk", label:"Yavru Başlangıç Menüsü", desc:"Büyüme & gelişim için taurin zengin formül",
-    img:"/images/dy.png",
+    img:"/images/tavuk/yurek_tavuk.png",
     nutrition:{ protein:70, fat:18, carb:12, energy:340, vitamin:88, fiber:35, water:175 },
     storage:"Buzdolabında 3 gün", consumption:"Günde 2 öğünde tüketin", who:"Kedi & Köpek" },
   /* ── DANA SERİSİ ── */
   { id:"dana-yurek",    series:"dana", label:"Aktif Dost Menüsü",    desc:"Enerjik yaşam için güçlü demir & taurin desteği",
-    img:"/images/dy.png",
+    img:"/images/dana/yurek_dana.png",
     nutrition:{ protein:74, fat:16, carb:10, energy:355, vitamin:85, fiber:30, water:170 },
     storage:"Buzdolabında 3 gün", consumption:"Oda sıcaklığına getirerek servis edin", who:"Kedi & Köpek" },
   { id:"dana-ciger",    series:"dana", label:"Kıdemli Dost Menüsü",  desc:"Yaşlı dostlar için A vitamini & antioksidan desteği",
-    img:"/images/dc.png",
+    img:"/images/dana/ciger_dana.png",
     nutrition:{ protein:71, fat:12, carb:17, energy:310, vitamin:95, fiber:35, water:182 },
     storage:"Buzdolabında 3 gün", consumption:"Küçük porsiyonlarda servis edin", who:"Kedi & Köpek" },
   { id:"dana-iskembe",  series:"dana", label:"Sindirim Destek Menüsü", desc:"Probiyotik & sindirim enzimi destekli köpek menüsü",
-    img:"/images/di.png",
+    img:"/images/dana/iskembe_dana.png",
     tag:"Köpek Özel",
     nutrition:{ protein:69, fat:15, carb:16, energy:305, vitamin:72, fiber:48, water:185 },
     storage:"Buzdolabında 3 gün", consumption:"Yavaş sindirilen besin, az miktarla başlayın", who:"Özellikle Köpek" },
@@ -134,13 +134,13 @@ const SUB_OPTIONS = [
 
 const PRODUCTS = [
   /* Tavuk Serisi */
-  {id:"tavuk-ciger-kart",  serie:"🐔 Tavuk Menüleri", emoji:"🍗", img:"/images/dc.png", label:"Günlük Güç Menüsü",     desc:"Dengeli günlük enerji, kedi & köpek için",        tag:"",          who:"Kedi & Köpek"},
-  {id:"tavuk-taslik-kart", serie:"🐔 Tavuk Menüleri", emoji:"🍖", img:"/images/tt.png", label:"Hassas Mide Menüsü",    desc:"Mide dostu hafif formül, kedi & köpek için",      tag:"",          who:"Kedi & Köpek"},
-  {id:"tavuk-yurek-kart",  serie:"🐔 Tavuk Menüleri", emoji:"🫀", img:"/images/dy.png", label:"Yavru Başlangıç Menüsü",desc:"Büyüme dönemi için taurin & protein desteği",     tag:"Popüler",   who:"Kedi & Köpek"},
+  {id:"tavuk-ciger-kart",  serie:"🐔 Tavuk Menüleri", emoji:"🍗", img:"/images/tavuk/ciger_tavuk.png", label:"Günlük Güç Menüsü",     desc:"Dengeli günlük enerji, kedi & köpek için",        tag:"",          who:"Kedi & Köpek"},
+  {id:"tavuk-taslik-kart", serie:"🐔 Tavuk Menüleri", emoji:"🍖", img:"/images/tavuk/taslik_tavuk.png", label:"Hassas Mide Menüsü",    desc:"Mide dostu hafif formül, kedi & köpek için",      tag:"",          who:"Kedi & Köpek"},
+  {id:"tavuk-yurek-kart",  serie:"🐔 Tavuk Menüleri", emoji:"🫀", img:"/images/tavuk/yurek_tavuk.png", label:"Yavru Başlangıç Menüsü",desc:"Büyüme dönemi için taurin & protein desteği",     tag:"Popüler",   who:"Kedi & Köpek"},
   /* Dana Serisi */
-  {id:"dana-yurek-kart",   serie:"🥩 Dana Menüleri",  emoji:"❤️", img:"/images/dy.png", label:"Aktif Dost Menüsü",     desc:"Enerjik dostlar için güçlü demir & taurin",       tag:"Yeni",      who:"Kedi & Köpek"},
-  {id:"dana-ciger-kart",   serie:"🥩 Dana Menüleri",  emoji:"🥩", img:"/images/dc.png", label:"Kıdemli Dost Menüsü",   desc:"Olgun dostlar için A vitamini & antioksidan",     tag:"",          who:"Kedi & Köpek"},
-  {id:"dana-iskembe-kart", serie:"🥩 Dana Menüleri",  emoji:"🫶", img:"/images/di.png", label:"Sindirim Destek Menüsü",desc:"Probiyotik & sindirim enzimi destekli köpek menüsü",tag:"Köpek Özel",who:"Özellikle Köpek"},
+  {id:"dana-yurek-kart",   serie:"🥩 Dana Menüleri",  emoji:"❤️", img:"/images/dana/yurek_dana.png", label:"Aktif Dost Menüsü",     desc:"Enerjik dostlar için güçlü demir & taurin",       tag:"Yeni",      who:"Kedi & Köpek"},
+  {id:"dana-ciger-kart",   serie:"🥩 Dana Menüleri",  emoji:"🥩", img:"/images/dana/ciger_dana.png", label:"Kıdemli Dost Menüsü",   desc:"Olgun dostlar için A vitamini & antioksidan",     tag:"",          who:"Kedi & Köpek"},
+  {id:"dana-iskembe-kart", serie:"🥩 Dana Menüleri",  emoji:"🫶", img:"/images/dana/iskembe_dana.png", label:"Sindirim Destek Menüsü",desc:"Probiyotik & sindirim enzimi destekli köpek menüsü",tag:"Köpek Özel",who:"Özellikle Köpek"},
 ];
 
 const INGREDIENTS = [
