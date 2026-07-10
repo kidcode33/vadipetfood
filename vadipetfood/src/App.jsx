@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 /* ================================================================
-   VadiPetFood v3.1 — Brand Experience Edition
+   Patigo v3.1 — Brand Experience Edition
    Yeni: Dark Mode · Scroll Progress · Toast · Bugün Mutfakta
          Malzeme Şeffaflığı · Blog · FAQ Arama · sitemap
 ================================================================ */
@@ -70,7 +70,7 @@ function ToastProvider({ children }) {
 
 // ─── CONSTANTS ────────────────────────────────────────────────────
 
-const STEP_LABELS = ["Hayvan","Profil","Detaylar","Aktivite","Tarif","İçerik","Plan","AI Analiz","Özet"];
+const STEP_LABELS = ["Profil","Bilgiler","Yaşam Tarzı","Aktivite","Menü","İçerik","Plan","Analiz","Onay"];
 
 const PET_TYPES = [
   { id:"kedi",  label:"Kedi",  icon:Cat,  desc:"Seçici damaklar için", emoji:"🐱" },
@@ -87,23 +87,23 @@ const SERIES = [
 
 const MAMA_TYPES = [
   /* ── TAVUK SERİSİ ── */
-  { id:"tavuk-ciger",  series:"tavuk", label:"Tavuk Ciğerli",  desc:"Demir & B12 deposu, yoğun lezzet",
+  { id:"tavuk-ciger",  series:"tavuk", label:"Günlük Güç Menüsü", desc:"Demir & B12 desteği ile dengeli günlük enerji",
     nutrition:{ protein:68, fat:14, carb:18, energy:320, vitamin:82, fiber:42, water:180 },
     storage:"Buzdolabında 3 gün", consumption:"Oda sıcaklığında servis edin", who:"Kedi & Köpek" },
-  { id:"tavuk-taslik", series:"tavuk", label:"Tavuk Taşlıklı", desc:"Yüksek protein, düşük yağ",
+  { id:"tavuk-taslik", series:"tavuk", label:"Hassas Mide Menüsü", desc:"Hafif sindirilebilir, mide dostu yüksek protein",
     nutrition:{ protein:72, fat:13, carb:15, energy:295, vitamin:75, fiber:38, water:190 },
     storage:"Buzdolabında 3 gün", consumption:"Küçük porsiyonlarda servis", who:"Kedi & Köpek" },
-  { id:"tavuk-yurek",  series:"tavuk", label:"Tavuk Yürekli",  desc:"Taurin zengin, kalp sağlığı",
+  { id:"tavuk-yurek",  series:"tavuk", label:"Yavru Başlangıç Menüsü", desc:"Büyüme & gelişim için taurin zengin formül",
     nutrition:{ protein:70, fat:18, carb:12, energy:340, vitamin:88, fiber:35, water:175 },
     storage:"Buzdolabında 3 gün", consumption:"Günde 2 öğünde tüketin", who:"Kedi & Köpek" },
   /* ── DANA SERİSİ ── */
-  { id:"dana-yurek",    series:"dana", label:"Dana Yürekli",   desc:"Zengin demir & taurin, güçlü kalp",
+  { id:"dana-yurek",    series:"dana", label:"Aktif Dost Menüsü",    desc:"Enerjik yaşam için güçlü demir & taurin desteği",
     nutrition:{ protein:74, fat:16, carb:10, energy:355, vitamin:85, fiber:30, water:170 },
     storage:"Buzdolabında 3 gün", consumption:"Oda sıcaklığına getirerek servis edin", who:"Kedi & Köpek" },
-  { id:"dana-ciger",    series:"dana", label:"Dana Ciğerli",   desc:"A vitamini ve demir bakımından çok zengin",
+  { id:"dana-ciger",    series:"dana", label:"Kıdemli Dost Menüsü",  desc:"Yaşlı dostlar için A vitamini & antioksidan desteği",
     nutrition:{ protein:71, fat:12, carb:17, energy:310, vitamin:95, fiber:35, water:182 },
     storage:"Buzdolabında 3 gün", consumption:"Küçük porsiyonlarda servis edin", who:"Kedi & Köpek" },
-  { id:"dana-iskembe",  series:"dana", label:"Dana İşkembeli", desc:"Sindirim enzimleri & probiyotik destek",
+  { id:"dana-iskembe",  series:"dana", label:"Sindirim Destek Menüsü", desc:"Probiyotik & sindirim enzimi destekli köpek menüsü",
     tag:"Köpek Özel",
     nutrition:{ protein:69, fat:15, carb:16, energy:305, vitamin:72, fiber:48, water:185 },
     storage:"Buzdolabında 3 gün", consumption:"Yavaş sindirilen besin, az miktarla başlayın", who:"Özellikle Köpek" },
@@ -126,13 +126,13 @@ const SUB_OPTIONS = [
 
 const PRODUCTS = [
   /* Tavuk Serisi */
-  {id:"tavuk-ciger-kart",  serie:"🐔 Tavuk", emoji:"🍗", label:"Tavuk Ciğerli",  desc:"Demir & B12 deposu, kedi & köpek için",          tag:"",         who:"Kedi & Köpek"},
-  {id:"tavuk-taslik-kart", serie:"🐔 Tavuk", emoji:"🍖", label:"Tavuk Taşlıklı", desc:"Yüksek protein, düşük yağ formülü",               tag:"",         who:"Kedi & Köpek"},
-  {id:"tavuk-yurek-kart",  serie:"🐔 Tavuk", emoji:"🫀", label:"Tavuk Yürekli",  desc:"Taurin açısından zengin, kalp sağlığı",           tag:"Popüler",  who:"Kedi & Köpek"},
+  {id:"tavuk-ciger-kart",  serie:"🐔 Tavuk Menüleri", emoji:"🍗", label:"Günlük Güç Menüsü",    desc:"Dengeli günlük enerji, kedi & köpek için",          tag:"",         who:"Kedi & Köpek"},
+  {id:"tavuk-taslik-kart", serie:"🐔 Tavuk Menüleri", emoji:"🍖", label:"Hassas Mide Menüsü",   desc:"Mide dostu hafif formül, kedi & köpek için",               tag:"",         who:"Kedi & Köpek"},
+  {id:"tavuk-yurek-kart",  serie:"🐔 Tavuk Menüleri", emoji:"🫀", label:"Yavru Başlangıç Menüsü", desc:"Büyüme dönemi için taurin & protein desteği",           tag:"Popüler",  who:"Kedi & Köpek"},
   /* Dana Serisi */
-  {id:"dana-yurek-kart",   serie:"🥩 Dana",  emoji:"❤️", label:"Dana Yürekli",   desc:"Zengin demir & taurin, güçlü kalp desteği",       tag:"Yeni",     who:"Kedi & Köpek"},
-  {id:"dana-ciger-kart",   serie:"🥩 Dana",  emoji:"🥩", label:"Dana Ciğerli",   desc:"A vitamini & demir bakımından son derece zengin", tag:"",         who:"Kedi & Köpek"},
-  {id:"dana-iskembe-kart", serie:"🥩 Dana",  emoji:"🫶", label:"Dana İşkembeli", desc:"Sindirim enzimleri & probiyotik destek",           tag:"Köpek Özel",who:"Özellikle Köpek"},
+  {id:"dana-yurek-kart",   serie:"🥩 Dana Menüleri",  emoji:"❤️", label:"Aktif Dost Menüsü",    desc:"Enerjik dostlar için güçlü demir & taurin",       tag:"Yeni",     who:"Kedi & Köpek"},
+  {id:"dana-ciger-kart",   serie:"🥩 Dana Menüleri",  emoji:"🥩", label:"Kıdemli Dost Menüsü",  desc:"Olgun dostlar için A vitamini & antioksidan", tag:"",         who:"Kedi & Köpek"},
+  {id:"dana-iskembe-kart", serie:"🥩 Dana Menüleri",  emoji:"🫶", label:"Sindirim Destek Menüsü", desc:"Probiyotik & sindirim enzimi destekli köpek menüsü",           tag:"Köpek Özel",who:"Özellikle Köpek"},
 ];
 
 const INGREDIENTS = [
@@ -367,15 +367,15 @@ const HeroSection=memo(({onStart})=>(
     <div className="hero-blob hero-blob-2" aria-hidden/>
     <div className="hero-inner">
       <div className="hero-text">
-        <div className="hero-eyebrow"><Leaf size={13}/> Siparişe Özel · Günlük Taze · %100 Doğal</div>
+        <div className="hero-eyebrow"><Leaf size={13}/> Her patiye özel beslenme.</div>
         <h1 className="hero-h1">
-          Onlar evcil hayvan değil.<br/>
-          <span className="hero-accent">Ailenizin bir parçası.</span>
+          Patigo'ya Hoş Geldiniz.<br/>
+          <span className="hero-accent">Her patiye özel beslenme.</span>
         </h1>
-        <p className="hero-sub">Sipariş üzerine hazırlanan taze ve doğal öğünler. Katkısız, renklendirici yok.</p>
+        <p className="hero-sub">Evcil dostunuzun yaşına, kilosuna, yaşam tarzına ve ihtiyaçlarına göre planlanan taze beslenme hizmeti.</p>
         <div className="hero-actions">
           <RippleBtn className="btn-primary btn-lg" onClick={onStart} aria-label="Sipariş sihirbazını başlat">
-            Hemen Başla <ArrowRight size={18}/>
+            Beslenme Planı Oluştur <ArrowRight size={18}/>
           </RippleBtn>
           <a href="#nasil-calisir" className="btn-ghost btn-lg">Nasıl Çalışıyor? <ChevronDown size={16}/></a>
         </div>
@@ -386,15 +386,15 @@ const HeroSection=memo(({onStart})=>(
             <span className="hero-pet-emoji">🐶</span>
             <span className="hero-pet-emoji hero-pet-2">🐱</span>
           </div>
-          <div className="hero-card-badge"><Check size={12}/>Bugün taze hazırlandı</div>
+          <div className="hero-card-badge"><Check size={12}/>Kişiselleştirilmiş Plan</div>
         </div>
-        <div className="hero-float hf1"><PawPrint size={12}/>500+ Mutlu Dost</div>
+        <div className="hero-float hf1"><PawPrint size={12}/>500+ Kişiselleştirilmiş Plan</div>
         <div className="hero-float hf2">❄️ Soğuk Zincir</div>
         <div className="hero-float hf3">🌿 Katkısız</div>
       </div>
     </div>
     <div className="hero-trust" role="list" aria-label="Güven göstergeleri">
-      {[{i:"🥩",t:"Katkısız"},{i:"🎯",t:"Siparişe Özel"},{i:"⚡",t:"Günlük Üretim"},{i:"❄️",t:"Soğuk Zincir"}].map(x=>(
+      {[{i:"👤",t:"Profil Bazlı"},{i:"🎯",t:"Kişiye Özel"},{i:"⚡",t:"Günlük Taze"},{i:"🌿",t:"Katkısız"}].map(x=>(
         <div key={x.t} className="hero-trust-item" role="listitem"><span aria-hidden>{x.i}</span>{x.t}</div>
       ))}
     </div>
@@ -437,8 +437,8 @@ const BugünMutfakta=memo(()=>{
       <div className="container">
         <div className="mutfak-inner">
           <div className="mutfak-label"><span className="mutfak-dot"/>Canlı Mutfak</div>
-          <h2 className="mutfak-title">Bugün Mutfakta</h2>
-          <p className="mutfak-sub">Her gün sabah 7'den itibaren siparişler hazırlanmaya başlar.</p>
+          <h2 className="mutfak-title">Bugün Mutfağımızda</h2>
+          <p className="mutfak-sub">Her sabah, gelen profillerle eşleştirilen öğünler taze olarak hazırlanmaya başlar.</p>
           <div className="mutfak-cards">
             <div className={cls("mutfak-card",inView&&"mutfak-card-in")} style={{animationDelay:"0ms"}}>
               <div className="mutfak-card-icon">📦</div>
@@ -471,10 +471,10 @@ const BugünMutfakta=memo(()=>{
 const HowItWorksSection=memo(()=>{
   const [ref,inView]=useInView();
   const steps=[
-    {icon:"📋",title:"Bilgileri Gir",desc:"Evcil hayvanınızın yaşını, ırkını ve sağlık durumunu girin."},
-    {icon:"🧠",title:"AI Analiz",desc:"Yapay zeka en uygun beslenme planını hesaplar."},
-    {icon:"👨‍🍳",title:"Mama Hazırlanır",desc:"24 saat içinde taze malzemelerle hazırlanır."},
-    {icon:"🚚",title:"Soğuk Zincir Teslimat",desc:"Kapınıza kadar soğuk zincirle teslim edilir."},
+    {icon:"👤",title:"Profil Oluştur",desc:"Evcil dostunuzun yaşını, ırkını, aktivite ve yaşam tarzını girin."},
+    {icon:"🧠",title:"Kişisel Menü",desc:"Sistem, profile özel beslenme planı ve menü seçenekleri sunar."},
+    {icon:"👨‍🍳",title:"Taze Hazırlanır",desc:"Onaylanan öğün, 24 saat içinde taze malzemelerle hazırlanır."},
+    {icon:"🚚",title:"Soğuk Zincir Teslimat",desc:"Kapınıza kadar tazeliği koruyan soğuk zincir ile teslim edilir."},
   ];
   return (
     <section className="section" id="nasil-calisir" ref={ref} aria-labelledby="hiw-title">
@@ -482,7 +482,7 @@ const HowItWorksSection=memo(()=>{
         <div className="section-header">
           <span className="section-eyebrow">Süreç</span>
           <h2 className="section-title" id="hiw-title">Nasıl Çalışır?</h2>
-          <p className="section-sub">4 adımda evcil dostunuza özel taze mama</p>
+          <p className="section-sub">Profil oluşturmaktan kapınıza teslimata — 4 adımda kişisel beslenme planı</p>
         </div>
         <div className="hiw-grid" role="list">
           {steps.map((s,i)=>(
@@ -512,8 +512,8 @@ const ProductsSection=memo(({onStart})=>{
       <h3>{p.label}</h3>
       <p>{p.desc}</p>
       <span className="prod-who">{p.who}</span>
-      <button className="btn-outline btn-sm" onClick={onStart} aria-label={`${p.label} siparişi ver`}>
-        Sipariş Ver <ArrowRight size={14}/>
+      <button className="btn-outline btn-sm" onClick={onStart} aria-label={`${p.label} planı oluştur`}>
+        Beslenme Planı Oluştur <ArrowRight size={14}/>
       </button>
     </div>
   ));
@@ -521,20 +521,20 @@ const ProductsSection=memo(({onStart})=>{
     <section className="section section-alt" id="urunler" ref={ref} aria-labelledby="prod-title">
       <div className="container">
         <div className="section-header">
-          <span className="section-eyebrow">Ürün Serileri</span>
-          <h2 className="section-title" id="prod-title">Tavuk & Dana Serisi</h2>
-          <p className="section-sub">İki farklı protein serisi, altı özel tarif — siparişe özel günlük üretim</p>
+          <span className="section-eyebrow">Beslenme Menüleri</span>
+          <h2 className="section-title" id="prod-title">İhtiyaca Özel Menüler</h2>
+          <p className="section-sub">Altı farklı ihtiyaç odaklı menü — her dost için profil bazlı, günlük taze hazırlık</p>
         </div>
         <div className="prod-series-section">
           <div className="prod-series-header prod-series-tavuk">
-            <span>🐔 Tavuk Serisi</span>
+            <span>🐔 Tavuk Menüleri</span>
             <span className="prod-series-sub">Kedi & Köpek</span>
           </div>
           <div className="prod-grid prod-grid-3">{renderCards(tavukItems,0)}</div>
         </div>
         <div className="prod-series-section" style={{marginTop:32}}>
           <div className="prod-series-header prod-series-dana">
-            <span>🥩 Dana Serisi</span>
+            <span>🥩 Dana Menüleri</span>
             <span className="prod-series-sub">Kedi & Köpek (İşkembe: Köpek Özel)</span>
           </div>
           <div className="prod-grid prod-grid-3">{renderCards(danaItems,3)}</div>
@@ -552,8 +552,8 @@ const ProcessSection=memo(()=>{
       <div className="container">
         <div className="section-header">
           <span className="section-eyebrow">Üretim</span>
-          <h2 className="section-title" id="proc-title">Nasıl Üretiyoruz?</h2>
-          <p className="section-sub">Her siparişin kat ettiği titiz yolculuk</p>
+          <h2 className="section-title" id="proc-title">Öğününüz Nasıl Hazırlanıyor?</h2>
+          <p className="section-sub">Profilinizden tabağa — her adımda titizlik</p>
         </div>
         <div className="process-timeline">
           {PROCESS_STEPS.map((s,i)=>(
@@ -616,7 +616,7 @@ const TrustSection=memo(()=>{
         <div className="trust-inner">
           <div className="trust-text">
             <span className="section-eyebrow" style={{background:"rgba(255,255,255,0.15)",color:"#fff",border:"1px solid rgba(255,255,255,0.3)"}}>Güvence</span>
-            <h2 className="section-title" id="trust-title" style={{color:"var(--trust-title)"}}>Neden VadiPetFood?</h2>
+            <h2 className="section-title" id="trust-title" style={{color:"var(--trust-title)"}}>Neden Patigo?</h2>
             <p className="section-sub" style={{color:"rgba(255,255,255,0.7)"}}>Uzlaşmayan standartlar, şeffaf üretim</p>
             <ul className="trust-list" role="list">
               {items.map(t=>(
@@ -651,7 +651,7 @@ const ReviewsSection=memo(()=>{
       <div className="container">
         <div className="section-header">
           <span className="section-eyebrow">Yorumlar</span>
-          <h2 className="section-title" id="rev-title">Mutlu Ebeveynler</h2>
+          <h2 className="section-title" id="rev-title">Memnun Ebeveynler</h2>
         </div>
         <div className="reviews-wrap">
           <div key={idx} className="review-card review-anim" role="article">
@@ -682,7 +682,7 @@ const BlogSection=memo(()=>{
     <section className="section section-alt" id="blog" ref={ref} aria-labelledby="blog-title">
       <div className="container">
         <div className="section-header">
-          <span className="section-eyebrow">Blog</span>
+          <span className="section-eyebrow">Bilgi</span>
           <h2 className="section-title" id="blog-title">Beslenme & Sağlık</h2>
           <p className="section-sub">Uzman görüşleri, pratik tavsiyeler, sağlıklı tarifler</p>
         </div>
@@ -719,7 +719,7 @@ const FAQSection=memo(()=>{
       <div className="container">
         <div className="section-header">
           <span className="section-eyebrow">SSS</span>
-          <h2 className="section-title" id="faq-title">Sıkça Sorulanlar</h2>
+          <h2 className="section-title" id="faq-title">Merak Edilenler</h2>
         </div>
         <div className="faq-search-wrap">
           <Search size={16} className="faq-search-ico" aria-hidden/>
@@ -750,15 +750,15 @@ const FooterSection=memo(({onStart})=>(
     <div className="container">
       <div className="footer-grid">
         <div className="footer-brand">
-          <div className="footer-logo"><PawPrint size={20}/> VadiPetFood</div>
-          <p>Türkiye'nin en taze, katkısız evcil hayvan beslenme platformu.</p>
-          <RippleBtn className="btn-primary btn-sm" onClick={onStart}>Sipariş Ver <ArrowRight size={14}/></RippleBtn>
+          <div className="footer-logo"><PawPrint size={20}/> Patigo</div>
+          <p>Her patiye özel beslenme. Profil bazlı, taze, kişiselleştirilmiş öğün planlaması.</p>
+          <RippleBtn className="btn-primary btn-sm" onClick={onStart}>Beslenme Planı Oluştur <ArrowRight size={14}/></RippleBtn>
         </div>
         <div className="footer-col">
           <h4>İletişim</h4>
           <a href={`https://wa.me/${WHATSAPP}`} className="footer-link"><MessageCircle size={14}/>WhatsApp</a>
           <a href="tel:+905555555555" className="footer-link"><Phone size={14}/>0555 555 55 55</a>
-          <a href="mailto:merhaba@vadipetfood.com" className="footer-link"><FileText size={14}/>merhaba@vadipetfood.com</a>
+          <a href="mailto:merhaba@patigo.com" className="footer-link"><FileText size={14}/>merhaba@patigo.com</a>
         </div>
         <div className="footer-col">
           <h4>Çalışma Saatleri</h4>
@@ -769,14 +769,14 @@ const FooterSection=memo(({onStart})=>(
         <div className="footer-col">
           <h4>Keşfet</h4>
           <a href="#nasil-calisir" className="footer-link">Nasıl Çalışır?</a>
-          <a href="#urunler"       className="footer-link">Ürünler</a>
+          <a href="#urunler"       className="footer-link">Menüler</a>
           <a href="#blog"          className="footer-link">Blog</a>
           <a href="#faq"           className="footer-link">SSS</a>
-          <button onClick={onStart} className="footer-link">Sipariş Ver</button>
+          <button onClick={onStart} className="footer-link">Beslenme Planı Oluştur</button>
         </div>
       </div>
       <div className="footer-bottom">
-        <span>© 2025 VadiPetFood. Tüm hakları saklıdır.</span>
+        <span>© 2025 Patigo. Tüm hakları saklıdır.</span>
         <span>Sevgiyle hazırlandı 🐾</span>
       </div>
     </div>
@@ -786,7 +786,7 @@ const FooterSection=memo(({onStart})=>(
 // ─── WIZARD STEPS ─────────────────────────────────────────────────
 
 function StepHayvan({petType,setPetType}){
-  return (<StepShell title="Dostunuz kim?" desc="Türe göre beslenme formülü belirlenir.">
+  return (<StepShell title="Beslenme Profili Oluştur" desc="Kişiselleştirilmiş menü için dostunuzun türünü seçin.">
     <div className="vp-grid2">
       {PET_TYPES.map(p=>(
         <SelCard key={p.id} active={petType===p.id} onClick={()=>setPetType(p.id)}>
@@ -805,7 +805,7 @@ function StepProfil({profile,onChange}){
     const f=e.target.files?.[0];if(!f)return;
     const r=new FileReader();r.onload=()=>{setPrev(r.result);onChange({...profile,photo:r.result});};r.readAsDataURL(f);
   };
-  return (<StepShell title="Dostunuzu tanıtalım" desc="Kişisel beslenme planı için kullanılır." badge="Kaydedilir">
+  return (<StepShell title="Evcil Hayvan Bilgileri" desc="Her bilgi, beslenme planını kişiselleştirmek için kullanılır." badge="Kaydedilir">
     <div className="photo-area">
       <label className="photo-lbl" htmlFor="vp-photo">
         {prev?<img src={prev} alt="Profil"/>:<><Camera size={18}/><span>Fotoğraf Ekle</span><span style={{fontSize:10,opacity:.6}}>Opsiyonel</span></>}
@@ -838,7 +838,7 @@ function StepProfil({profile,onChange}){
 function StepDetaylar({petType,profile,onChange}){
   const breeds=petType==="kedi"?BREEDS_CAT:BREEDS_DOG;
   const up=k=>v=>onChange({...profile,[k]:v});
-  return (<StepShell title="Irk & Detaylar" desc="Irka özgü beslenme gereksinimleri hesaplanır.">
+  return (<StepShell title="Yaşam Tarzı Bilgileri" desc="Irk ve yaşam koşulları, günlük öğün içeriğini belirler.">
     <FieldGroup label="Irk">
       <div className="chip-row chip-row-wrap">
         {breeds.map(b=><Chip key={b} active={profile.breed===b} onClick={()=>up("breed")(b)}>{b}</Chip>)}
@@ -851,7 +851,7 @@ function StepDetaylar({petType,profile,onChange}){
 function StepAktivite({profile,onChange}){
   const up=k=>v=>onChange({...profile,[k]:v});
   const toggleGoal=id=>{const g=profile.goals||[];onChange({...profile,goals:g.includes(id)?g.filter(x=>x!==id):[...g,id]});};
-  return (<StepShell title="Aktivite & Hedefler">
+  return (<StepShell title="Aktivite & Beslenme Hedefleri" desc="Günlük enerji ihtiyacı ve hedefler belirlenir.">
     <FieldGroup label="Aktivite Seviyesi">
       <div className="chip-row">
         {ACTIVITY.map(a=><Chip key={a.id} active={profile.activity===a.id} onClick={()=>up("activity")(a.id)}>{a.label} <span style={{fontSize:10,opacity:.7}}>{a.sub}</span></Chip>)}
@@ -867,7 +867,7 @@ function StepAktivite({profile,onChange}){
 
 function StepTarif({mamaType,setMamaType,petType}){
   const [openN,setOpenN]=useState(null);
-  return (<StepShell title="Tarif Seçin" desc="Her tarif günlük taze hazırlanır.">
+  return (<StepShell title="Profilinize Özel Menüler" desc="Profil verilerinize göre sistem tarafından önerilen ihtiyaç odaklı menüler.">
     {SERIES.map(serie=>{
       const items=MAMA_TYPES.filter(m=>m.series===serie.id);
       return (
@@ -921,9 +921,9 @@ function StepTarif({mamaType,setMamaType,petType}){
   </StepShell>);
 }
 
-function StepIcerik({proteins,setProteins,veggies,setVeggies,extras,setExtras}){
+function StepIcerik({proteins,setProteins,veggies,setVeggies,extras,setExtras,needs,setNeeds}){
   const tog=(arr,setArr,id)=>setArr(arr.includes(id)?arr.filter(x=>x!==id):[...arr,id]);
-  return (<StepShell title="İçeriği Belirleyin" desc="En az bir protein seçimi zorunludur.">
+  return (<StepShell title="Menü İçeriğini Düzenle" desc="Önerilen içeriği ihtiyacınıza göre özelleştirebilirsiniz.">
     <FieldGroup label="Protein" required>
       <div className="chip-row">{PROTEINS.map(p=><Chip key={p.id} active={proteins.includes(p.id)} onClick={()=>tog(proteins,setProteins,p.id)}>{p.label}</Chip>)}</div>
     </FieldGroup>
@@ -933,12 +933,15 @@ function StepIcerik({proteins,setProteins,veggies,setVeggies,extras,setExtras}){
     <FieldGroup label="Ek İçerikler">
       <div className="chip-row">{EXTRAS.map(e=><Chip key={e.id} active={extras.includes(e.id)} onClick={()=>tog(extras,setExtras,e.id)}>{e.label}<span style={{fontSize:10,opacity:.7}}> +{e.price}₺</span></Chip>)}</div>
     </FieldGroup>
+    <FieldGroup label="Özel Beslenme İhtiyaçları">
+      <div className="chip-row chip-row-wrap">{NEEDS.map(n=><Chip key={n.id} active={needs.includes(n.id)} onClick={()=>tog(needs,setNeeds,n.id)}>{n.label}</Chip>)}</div>
+    </FieldGroup>
   </StepShell>);
 }
 
 function StepPlan({grams,setGrams,subscription,setSubscription,pricing}){
   const sub=SUB_OPTIONS.find(s=>s.id===subscription);
-  return (<StepShell title="Gramaj & Plan">
+  return (<StepShell title="Porsiyon & Teslimat Planı" desc="Dostunuzun kilosuna ve yaşam düzenine uygun porsiyon ve sıklığı belirleyin.">
     <FieldGroup label="Gramaj">
       <div className="vp-grid3">
         {GRAMS.map(g=>{
@@ -976,12 +979,12 @@ function StepAIAnaliz({petProfile,petType,mamaType,proteins,veggies,needs,mamaDa
     fetchAI({petProfile,petType,mamaType,proteins,veggies,needs}).then(setAiText).finally(()=>setLoading(false));
   },[]);
   const n=mamaData?.nutrition;
-  return (<StepShell title="AI Beslenme Analizi" badge="AI Destekli">
+  return (<StepShell title="Kişisel Beslenme Raporu" desc="Profil verilerine göre hazırlanmış analiz." badge="AI Destekli">
     <div className="ai-report">
       <div className="ai-hd"><Brain size={17}/><strong>Kişisel Beslenme Değerlendirmesi</strong></div>
       {loading?<div style={{display:"flex",flexDirection:"column",gap:8,marginTop:10}}><Shimmer/><Shimmer/></div>
         :<><p className="ai-txt">{aiText||"Değerlendirme hazırlanıyor…"}</p>
-          <div className="ai-why"><strong>Neden bu öneriyi verdik?</strong><p>Profilinize girdiğiniz aktivite seviyesi, ırk özellikleri ve sağlık hedefleriniz birlikte değerlendirilerek bu tarif seçildi.</p></div>
+          <div className="ai-why"><strong>Neden bu öneriyi verdik?</strong><p>Profilinize girdiğiniz aktivite seviyesi, ırk özellikleri, yaşam tarzı ve beslenme hedefleriniz birlikte değerlendirilerek bu kişiselleştirilmiş günlük menü oluşturuldu.</p></div>
         </>}
     </div>
     {n&&<div className="nutr-report">
@@ -1002,7 +1005,7 @@ function StepAIAnaliz({petProfile,petType,mamaType,proteins,veggies,needs,mamaDa
 function StepOzet({petProfile,petType,mamaType,proteins,veggies,extras,needs,grams,subscription,pricing,savedPuan,form,setForm,touched,setTouched,onSend,isSending,submitted}){
   const sub=SUB_OPTIONS.find(s=>s.id===subscription);
   const formValid=form.name?.trim().length>1&&form.phone?.trim().length>=10&&form.address?.trim().length>5;
-  return (<StepShell title="Siparişi Onayla" desc="Bilgilerinizi kontrol edin.">
+  return (<StepShell title="Beslenme Planını Onayla" desc="Kişiselleştirilmiş öğün planınızı gözden geçirin ve onaylayın.">
     {petProfile.name&&(
       <div className="profile-mini">
         <div className="profile-av">{petProfile.photo?<img src={petProfile.photo} alt=""/>:<PawPrint size={17}/>}</div>
@@ -1036,7 +1039,7 @@ function StepOzet({petProfile,petType,mamaType,proteins,veggies,extras,needs,gra
       </div>
     </FieldGroup>
     <RippleBtn className={cls("wa-btn",isSending&&"wa-btn-send")} onClick={onSend} disabled={isSending} aria-label="WhatsApp ile sipariş onayla">
-      {isSending?<><Loader2 size={18} className="vspin"/>Hazırlanıyor…</>:<><MessageCircle size={18}/>WhatsApp ile Onayla</>}
+      {isSending?<><Loader2 size={18} className="vspin"/>Hazırlanıyor…</>:<><MessageCircle size={18}/>Beslenme Planını WhatsApp'a Gönder</>}
     </RippleBtn>
     {touched&&!formValid&&<p className="err-txt" role="alert">Zorunlu alanları eksiksiz doldurun.</p>}
     {submitted&&<p className="ok-txt" role="status"><Check size={13}/>Talebiniz WhatsApp'a aktarıldı!</p>}
@@ -1090,7 +1093,7 @@ function WizardOverlay({onClose}){
 
   const buildMsg=useCallback(()=>{
     const age=calcAge(petProfile.dob); const sub=SUB_OPTIONS.find(s=>s.id===subscription);
-    return ["Merhaba, VadiPetFood'dan sipariş vermek istiyorum.","",
+    return ["Merhaba, Patigo'dan beslenme planı onaylamak istiyorum.","",
       `Hayvan: ${petProfile.name||"—"} (${getLabel(PET_TYPES,petType)})`,
       petProfile.breed?`Irk: ${petProfile.breed}`:null,
       age?`Yaş: ${age}`:null, petProfile.weight?`Kilo: ${petProfile.weight} kg`:null,
@@ -1123,7 +1126,7 @@ function WizardOverlay({onClose}){
     <div className="wiz-overlay" onClick={e=>{if(e.target===e.currentTarget)onClose();}} role="dialog" aria-modal aria-label="Sipariş sihirbazı">
       <div className="wiz-panel">
         <div className="wiz-header">
-          <div className="wiz-brand"><PawPrint size={15}/> VadiPetFood</div>
+          <div className="wiz-brand"><PawPrint size={15}/> Patigo</div>
           <button className="wiz-close" onClick={onClose} aria-label="Kapat"><X size={20}/></button>
         </div>
         <ProgressTrack step={step} total={TOTAL}/>
@@ -1134,7 +1137,7 @@ function WizardOverlay({onClose}){
             {step===3&&<StepDetaylar petType={petType} profile={petProfile} onChange={setPetProfile}/>}
             {step===4&&<StepAktivite profile={petProfile} onChange={setPetProfile}/>}
             {step===5&&<StepTarif mamaType={mamaType} setMamaType={setMamaType} petType={petType}/>}
-            {step===6&&<StepIcerik proteins={proteins} setProteins={setProteins} veggies={veggies} setVeggies={setVeggies} extras={extras} setExtras={setExtras}/>}
+            {step===6&&<StepIcerik proteins={proteins} setProteins={setProteins} veggies={veggies} setVeggies={setVeggies} extras={extras} setExtras={setExtras} needs={needs} setNeeds={setNeeds}/>}
             {step===7&&<StepPlan grams={grams} setGrams={setGrams} subscription={subscription} setSubscription={setSub} pricing={pricing}/>}
             {step===8&&<StepAIAnaliz petProfile={petProfile} petType={petType} mamaType={mamaType} proteins={proteins} veggies={veggies} needs={needs} mamaData={mamaData}/>}
             {step===9&&<StepOzet petProfile={petProfile} petType={petType} mamaType={mamaType} proteins={proteins} veggies={veggies} extras={extras} needs={needs} grams={grams} subscription={subscription} pricing={pricing} savedPuan={savedPuan} form={form} setForm={setForm} touched={touched} setTouched={setTouched} onSend={handleSend} isSending={isSending} submitted={submitted}/>}
@@ -1160,10 +1163,10 @@ const Header=memo(({onStart})=>{
   return (
     <header className={cls("site-header",scrolled&&"site-header-sc")} role="banner">
       <div className="container header-inner">
-        <a href="/" className="header-logo" aria-label="VadiPetFood ana sayfa"><PawPrint size={19}/> VadiPetFood</a>
+        <a href="/" className="header-logo" aria-label="Patigo ana sayfa"><PawPrint size={19}/> Patigo</a>
         <nav className="header-nav" aria-label="Ana navigasyon">
           <a href="#nasil-calisir">Nasıl Çalışır?</a>
-          <a href="#urunler">Ürünler</a>
+          <a href="#urunler">Menüler</a>
           <a href="#blog">Blog</a>
           <a href="#faq">SSS</a>
         </nav>
@@ -1180,10 +1183,10 @@ const Header=memo(({onStart})=>{
       {menu&&(
         <nav className="mobile-menu" aria-label="Mobil menü">
           <a href="#nasil-calisir" onClick={()=>setMenu(false)}>Nasıl Çalışır?</a>
-          <a href="#urunler" onClick={()=>setMenu(false)}>Ürünler</a>
+          <a href="#urunler" onClick={()=>setMenu(false)}>Menüler</a>
           <a href="#blog" onClick={()=>setMenu(false)}>Blog</a>
           <a href="#faq" onClick={()=>setMenu(false)}>SSS</a>
-          <RippleBtn className="btn-primary" onClick={()=>{setMenu(false);onStart();}}>Sipariş Ver <ArrowRight size={14}/></RippleBtn>
+          <RippleBtn className="btn-primary" onClick={()=>{setMenu(false);onStart();}}>Beslenme Planı Oluştur <ArrowRight size={14}/></RippleBtn>
         </nav>
       )}
     </header>
@@ -1387,8 +1390,8 @@ button{font-family:'Inter',sans-serif;}
 
 /* PRODUCTS */
 .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-@media(max-width:900px){.prod-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:500px){.prod-grid{grid-template-columns:1fr;}}
+@media(max-width:900px){.prod-grid{grid-template-columns:repeat(2,1fr);}.prod-grid.prod-grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:500px){.prod-grid{grid-template-columns:1fr;}.prod-grid.prod-grid-3{grid-template-columns:1fr;}}
 .prod-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:26px 18px;text-align:center;position:relative;opacity:0;transform:translateY(22px);transition:all .5s cubic-bezier(.16,1,.3,1);}
 .prod-card-in{opacity:1;transform:translateY(0);}
 .prod-card:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 18px 48px rgba(63,174,73,.14);border-color:var(--primary);}
@@ -1678,7 +1681,7 @@ button{font-family:'Inter',sans-serif;}
 [data-theme="dark"] .prod-series-tavuk{background:rgba(255,183,77,.1);border-color:rgba(255,183,77,.2);}
 [data-theme="dark"] .prod-series-dana{background:rgba(239,83,80,.1);border-color:rgba(239,83,80,.2);}
 .prod-series-sub{font-size:12px;font-weight:500;color:var(--muted);font-family:'Inter',sans-serif;}
-.prod-grid-3{grid-template-columns:repeat(3,1fr);}
+.prod-grid.prod-grid-3{grid-template-columns:repeat(3,1fr);}
 @media(max-width:768px){.prod-grid-3{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:480px){.prod-grid-3{grid-template-columns:1fr;}}
 .prod-who{display:block;font-size:11.5px;color:var(--primary);font-weight:500;margin-bottom:14px;margin-top:-10px;}

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vadipetfood.netlify.app/sitemap.xml
+
+# VadiPetFood — Butik Taze Evcil Hayvan Maması
